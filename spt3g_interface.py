@@ -1,5 +1,6 @@
 #!python3
 from cosmosis.datablock import names
+import numpy as np
 import spt3g_2020 as spt3g
 
 def setup(options):
