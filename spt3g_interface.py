@@ -62,11 +62,19 @@ def execute(block, config):
     The default modules should not do this so probably you messed with something. Raise an issue if not.""")
 
     #Convert to D_ell
-    dl_te = te * ell * (ell + 1)
-    dl_ee = ee * ell * (ell + 1)
+    #dl_te = te * ell * (ell + 1)
+    #dl_ee = ee * ell * (ell + 1)
+
+    #Save D_ell for test
+    #np.save('ell.npy', ell)
+    #np.save('dl_te.npy', te)
+    #np.save('dl_ee.npy', ee)
 
     #Calculate log-likelihood
-    log_like = likelihood_instance.loglike(dl_te, dl_ee, **fg_params)
+    log_like = likelihood_instance.loglike(te, ee, **fg_params)
+
+    #Print log-likelihood
+    print('log_like =', log_like)
 
     #Save log-likelihood to block
     block[names.likelihoods, "spt3g_like"] = log_like
