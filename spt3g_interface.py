@@ -13,7 +13,7 @@ def execute(block, config):
     likelihood_instance = config
 
     #Fix foreground parameters (might want to vary these from block)
-    fg_params = dict(
+    '''fg_params = dict(
         kappa=0.0,
         Dl_Poisson_90x90=0.1,
         Dl_Poisson_90x150=0.1,
@@ -34,6 +34,29 @@ def execute(block, config):
         mapPcal90=1.0,
         mapPcal150=1.0,
         mapPcal220=1.0,
+    )
+    '''
+    fg_params = dict(
+        kappa=block[names.spt3g, "kappa100"] / 100.,
+        Dl_Poisson_90x90=block[names.spt3g, "Dl_Poisson_90x90"],
+        Dl_Poisson_90x150=block[names.spt3g, "Dl_Poisson_90x150"],
+        Dl_Poisson_90x220=block[names.spt3g, "Dl_Poisson_90x220"],
+        Dl_Poisson_150x150=block[names.spt3g, "Dl_Poisson_150x150"],
+        Dl_Poisson_150x220=block[names.spt3g, "Dl_Poisson_150x220"],
+        Dl_Poisson_220x220=block[names.spt3g, "Dl_Poisson_220x220"],
+        TDust=block[names.spt3g, "TDust"],
+        ADust_TE_150=block[names.spt3g, "ADust_TE_150"],
+        BetaDust_TE=block[names.spt3g, "BetaDust_TE"],
+        AlphaDust_TE=block[names.spt3g, "AlphaDust_TE"],
+        ADust_EE_150=block[names.spt3g, "ADust_EE_150"],
+        BetaDust_EE=block[names.spt3g, "BetaDust_EE"],
+        AlphaDust_EE=block[names.spt3g, "AlphaDust_EE"],
+        mapTcal90=block[names.spt3g, "mapTcal90"],
+        mapTcal150=block[names.spt3g, "mapTcal150"],
+        mapTcal220=block[names.spt3g, "mapTcal220"],
+        mapPcal90=block[names.spt3g, "mapPcal90"],
+        mapPcal150=block[names.spt3g, "mapPcal150"],
+        mapPcal220=block[names.spt3g, "mapPcal220"],
     )
 
     #Load theory TE and EE angular power spectra from block
